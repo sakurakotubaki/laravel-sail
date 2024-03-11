@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hi icchy!</h1>
+    <ul>
+    @foreach ($values as $value)
+        <li>{{ $value->text }}</li>
+    @endforeach
+    </ul>
 </body>
 </html>

@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HelloController;
+use App\Http\Controllers\FlightController;
+use App\Http\Controllers\HogeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +20,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// URLにアクセスするとコントローラーを見に行く
+Route::get('/hellos/hello', [HelloController::class, 'index']);
+
+Route::get('/flights/flight', [FlightController::class, 'index']);
+
+// JSONのデータを返すルート
+Route::get('/hoge', [HogeController::class, 'index']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
