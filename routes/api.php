@@ -21,6 +21,12 @@ Route::get('/hoge', [HogeController::class, 'index']);
 // JSONのデータを追加するルート。storeメソッドにデータを渡す
 Route::post('/hoge', [HogeController::class, 'store']);
 
+// JSONのデータを更新するルート。updateメソッドにデータを渡す
+Route::put('/hoge/{id}', [HogeController::class, 'update']);
+
+// JSONのデータを削除するルート。destroyメソッドにデータを渡す
+Route::delete('/hoge/{id}', [HogeController::class, 'destroy']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

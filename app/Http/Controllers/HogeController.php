@@ -22,4 +22,24 @@ class HogeController extends Controller
         // 追加したデータを返す
         return response()->json($hoge);
     }
+    // hogeテーブルのデータを更新
+    public function update(Request $request, $id)
+    {
+        // テーブルからidが一致するデータを取得
+        $hoge = Hoge::find($id);
+        // データを更新
+        $hoge->update($request->all());
+        // 更新したデータを返す
+        return response()->json($hoge);
+    }
+    // hogeテーブルのデータを削除
+    public function destroy($id)
+    {
+        // テーブルからidが一致するデータを取得
+        $hoge = Hoge::find($id);
+        // データを削除
+        $hoge->delete();
+        // 削除したデータを返す
+        return response()->json($hoge);
+    }
 }
