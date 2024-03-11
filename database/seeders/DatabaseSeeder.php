@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // HogeのSeederを呼び出す
-        $this->call(HogeSeeder::class);
+        // PersonSeederを呼び出す
+        $this->call(PersonSeeder::class);
     }
 }

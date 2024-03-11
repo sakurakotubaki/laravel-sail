@@ -2,9 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HelloController;
-use App\Http\Controllers\FlightController;
-use App\Http\Controllers\HogeController;
+use App\Http\Controllers\PersonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +19,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// URLにアクセスするとコントローラーを見に行く
-Route::get('/hellos/hello', [HelloController::class, 'index']);
+// personsのpageを表示する
+Route::get('/persons', [PersonController::class, 'index']);
 
-Route::get('/flights/flight', [FlightController::class, 'index']);
+// personsの新規登録画面を表示する
+Route::get('/persons/create', [PersonController::class, 'create'])->name('persons.create');
+
+// personsの新規登録処理をする
+Route::post('/persons', [PersonController::class, 'store'])->name('persons.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -28,27 +28,3 @@ return new class extends Migration
         Schema::dropIfExists('hoge');
     }
 };
-
-hogesテーブルなるものを探しにいくので、明示的に指定する必要がある。
-```php
-<?php
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Hoge extends Model
-{
-    use HasFactory;
-
-    // テーブルが複数形のhogesになってしまうので、明示的に指定
-    protected $table = 'hoge';
-}
-```
-
-キャッシュのクリアもする
-```bash
-php artisan config:clear
-php artisan cache:clear
-```
