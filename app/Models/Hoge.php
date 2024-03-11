@@ -11,4 +11,8 @@ class Hoge extends Model
 
     // テーブルが複数形のhogesになってしまうので、明示的に指定
     protected $table = 'hoge';
+    
+    // 追加のための設定。カラムはname, age, birthday
+    protected $fillable = ['name', 'age', 'birthday'];
+
 }

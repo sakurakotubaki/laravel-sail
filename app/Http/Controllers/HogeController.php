@@ -14,4 +14,12 @@ class HogeController extends Controller
         // jsonメソッドでJSON形式に変換して返す
         return response()->json($hoge);
     }
+    // hogeテーブルにデータを追加
+    public function store(Request $request)
+    {
+        // テーブルにデータを追加する
+        $hoge = Hoge::create($request->all());
+        // 追加したデータを返す
+        return response()->json($hoge);
+    }
 }
