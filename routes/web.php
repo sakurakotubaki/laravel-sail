@@ -26,9 +26,6 @@ Route::get('/hellos/hello', [HelloController::class, 'index']);
 
 Route::get('/flights/flight', [FlightController::class, 'index']);
 
-// JSONのデータを返すルート
-Route::get('/hoge', [HogeController::class, 'index']);
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
