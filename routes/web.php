@@ -28,6 +28,9 @@ Route::get('/persons/create', [PersonController::class, 'create'])->name('person
 // personsの新規登録処理をする
 Route::post('/persons', [PersonController::class, 'store'])->name('persons.store');
 
+// personsの削除処理をする
+Route::delete('/persons/{id}', [PersonController::class, 'destroy'])->name('persons.destroy');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

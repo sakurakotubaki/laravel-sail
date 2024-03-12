@@ -21,8 +21,20 @@ class PersonController extends Controller
     // personsテーブルのデータを新規登録する処理
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:persons,email',
+        ]);
+    
         $data = $request->except('_token'); // _tokenを除外
         $persons = Person::create($data);
         return redirect('/persons');
     }
+    // personsテーブルのデータを削除する処理
+    public function destroy($id)
+    {
+        $person = Person::find($id);
+        $person->delete();
+        return redirect('/persons');
+    } 
 }
