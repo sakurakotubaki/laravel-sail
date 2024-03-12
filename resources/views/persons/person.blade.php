@@ -26,6 +26,7 @@
                             <td class="border px-4 py-2">{{ $person->name }}</td>
                             <td class="border px-4 py-2">{{ $person->email }}</td>
                             <td class="border px-4 py-2">
+                                <a href="{{ route('persons.edit', ['id' => $person->id]) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">編集</a>
                                 <button class="delete-button bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" data-id="{{ $person->id }}">削除</button>
                             </td>
                         </tr>

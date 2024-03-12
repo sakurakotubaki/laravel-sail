@@ -28,6 +28,12 @@ Route::get('/persons/create', [PersonController::class, 'create'])->name('person
 // personsの新規登録処理をする
 Route::post('/persons', [PersonController::class, 'store'])->name('persons.store');
 
+// personsの編集画面を表示する
+Route::get('/persons/{id}/edit', [PersonController::class, 'edit'])->name('persons.edit');
+
+// 更新の処理をする
+Route::put('/persons/{id}', [PersonController::class, 'update'])->name('persons.update');
+
 // personsの削除処理をする
 Route::delete('/persons/{id}', [PersonController::class, 'destroy'])->name('persons.destroy');
 
